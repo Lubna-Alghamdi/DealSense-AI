@@ -2,7 +2,7 @@ import { configureTracking } from "@agent-native/core/client/analytics";
 import { appPath } from "@agent-native/core/client/api-path";
 import { useDbSync } from "@agent-native/core/client/hooks";
 import { createAgentNativeQueryClient } from "@agent-native/core/client/hooks";
-import { getThemeInitScript } from "@agent-native/core/client/ui";
+import { ClientOnly, getThemeInitScript } from "@agent-native/core/client/ui";
 import { AppProviders } from "@agent-native/toolkit/app/providers";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
@@ -84,10 +84,13 @@ export default function Root() {
   defaultTheme="dark"
   isPublicPath={(path) => path === "/login" || path === "/signup"}
 >
-        <DbSyncSetup />
-        <AppLayout>
-          <Outlet />
-        </AppLayout>
+        <ClientOnly>
+  <DbSyncSetup />
+</ClientOnly>
+
+<AppLayout>
+  <Outlet />
+</AppLayout>
       </AppProviders>
     </AppToolkitProvider>
   );
