@@ -188,7 +188,7 @@ export default function Signup() {
 
             <p className="text-center text-slate-400">
               Already have an account?{" "}
-              <a href="/" className="text-[#4388ff] font-semibold">
+              <a href="/sign-in" className="text-[#4388ff] font-semibold">
                 Login
               </a>
             </p>
