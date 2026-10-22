@@ -5,4 +5,5 @@ import { LOGIN_HTML } from "../login-html";
 export default createAuthPlugin({
   rootAuth: false,
   loginHtml: LOGIN_HTML,
+  publicPaths: ["/login", "/signup"],
 });
