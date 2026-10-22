@@ -3,7 +3,6 @@ import { createAuthPlugin } from "@agent-native/core/server";
 import { LOGIN_HTML } from "../login-html";
 
 export default createAuthPlugin({
-  rootAuth: false,
+  rootAuth: true,
   loginHtml: LOGIN_HTML,
-  publicPaths: ["/login", "/signup"],
 });
