@@ -3,7 +3,6 @@ import { appPath } from "@agent-native/core/client/api-path";
 import { useDbSync } from "@agent-native/core/client/hooks";
 import { createAgentNativeQueryClient } from "@agent-native/core/client/hooks";
 import { getThemeInitScript } from "@agent-native/core/client/ui";
-import { ClientOnly } from "@agent-native/toolkit/app/shared/clientOnly";
 import { AppProviders } from "@agent-native/toolkit/app/providers";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
@@ -85,9 +84,7 @@ export default function Root() {
   defaultTheme="dark"
   isPublicPath={(path) => path === "/login" || path === "/signup"}
 >
-        <ClientOnly>
-  <DbSyncSetup />
-</ClientOnly>
+       <DbSyncSetup />
 
 <AppLayout>
   <Outlet />
