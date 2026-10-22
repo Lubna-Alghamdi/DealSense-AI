@@ -62,7 +62,7 @@ export default function Signup() {
           </p>
 
           <a
-            href="/sign-in"
+            href="/login"
             className="block bg-[#2f6fed] hover:bg-[#2863d8] rounded-xl py-4 font-semibold"
           >
             Go to Login
@@ -188,7 +188,7 @@ export default function Signup() {
 
             <p className="text-center text-slate-400">
               Already have an account?{" "}
-              <a href="/sign-in" className="text-[#4388ff] font-semibold">
+              <a href="/login" className="text-[#4388ff] font-semibold">
                 Login
               </a>
             </p>
