@@ -1,0 +1,333 @@
+@import "@fontsource-variable/inter";
+
+@import "tailwindcss";
+@import "@agent-native/toolkit/styles.css";
+
+@theme inline {
+  --color-navy: hsl(var(--navy));
+  --color-teal: hsl(var(--teal));
+  --color-teal-foreground: hsl(var(--teal-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-bg: hsl(var(--success-bg));
+  --color-warning: hsl(var(--warning));
+  --color-warning-bg: hsl(var(--warning-bg));
+  --color-danger: hsl(var(--danger));
+  --color-danger-bg: hsl(var(--danger-bg));
+}
+
+@source "./**/*.{ts,tsx}";
+
+:root {
+  --background: 210 33% 97%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 214 40% 95%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 210 30% 94%;
+  --muted-foreground: 215 16% 40%;
+  --accent: 214 40% 93%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 25% 88%;
+  --input: 214 25% 88%;
+  --ring: 221 83% 53%;
+  --radius: 1rem;
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 215 16% 40%;
+  --sidebar-primary: 221 83% 53%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 214 40% 95%;
+  --sidebar-accent-foreground: 222 47% 11%;
+  --sidebar-border: 214 25% 88%;
+  --sidebar-ring: 221 83% 53%;
+  --navy: 222 47% 11%;
+  --teal: 221 83% 53%;
+  --teal-foreground: 0 0% 100%;
+  --success: 152 55% 32%;
+  --success-bg: 152 50% 93%;
+  --warning: 32 90% 38%;
+  --warning-bg: 40 90% 93%;
+  --danger: 0 70% 45%;
+  --danger-bg: 0 80% 95%;
+  --chat-sidebar-width: 17.25rem;
+  --chat-sidebar-content-inset: 0.5rem;
+  --chat-sidebar-row-padding: 0.75rem;
+  --chat-sidebar-title-fade: 1.25rem;
+}
+
+.chat-layout-shell {
+  --agent-layout-left-drawer-expanded-width: var(--chat-sidebar-width);
+  --agent-native-lower-surface: var(--agent-kit-nav-surface);
+}
+
+.agentkit-chat-empty-copy {
+  text-align: center;
+}
+
+.agentkit-chat-empty-copy h1 {
+  margin: 0;
+  color: hsl(var(--foreground));
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.agent-kit-chat-footer-stack {
+  inline-size: min(100%, 47rem);
+  margin-inline: auto;
+  pointer-events: auto;
+}
+
+.agent-kit-chat-footer-stack > .agentkit-composer-stack {
+  inline-size: 100%;
+}
+
+.agent-kit-chat-guided-question {
+  max-block-size: min(32rem, 58dvh);
+  overflow: auto;
+  margin-block-end: 0.5rem;
+  border: 1px solid var(--agentkit-border);
+  border-radius: var(--agentkit-radius);
+  background: var(--agentkit-surface);
+  box-shadow: var(--agentkit-elevation);
+}
+
+.chat-sidebar-history .an-chat-history__list {
+  padding-top: 0;
+}
+
+.chat-sidebar-history .an-chat-history__section-label {
+  padding: 8px
+    calc(var(--chat-sidebar-content-inset) + var(--chat-sidebar-row-padding))
+    5px;
+  color: hsl(var(--sidebar-foreground) / 0.66);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.chat-sidebar-history.an-chat-history--rail .an-chat-history-row {
+  margin-inline: var(--chat-sidebar-content-inset);
+  border-radius: calc(var(--radius) + 2px);
+}
+
+.chat-sidebar-history.an-chat-history--rail .an-chat-history-row__button {
+  min-height: 34px;
+  padding-block: 7px;
+  padding-inline: var(--chat-sidebar-row-padding);
+  color: hsl(var(--sidebar-foreground));
+}
+
+.chat-sidebar-history.an-chat-history--rail
+  .an-chat-history-row--has-menu
+  .an-chat-history-row__button {
+  padding-inline-end: calc(var(--chat-sidebar-row-padding) + 1.5rem);
+}
+
+.chat-sidebar-history .an-chat-history-row__title {
+  flex: 1 1 auto;
+  color: hsl(var(--sidebar-accent-foreground));
+  font-size: 13px;
+  font-weight: 400;
+  text-overflow: clip;
+}
+
+.chat-sidebar-thread-title-shell {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+}
+
+.chat-sidebar-thread-title {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.chat-sidebar-thread-running {
+  color: hsl(var(--sidebar-foreground) / 0.72);
+}
+
+.chat-sidebar-thread-title[data-overflow="true"] {
+  mask-image: linear-gradient(
+    to right,
+    hsl(var(--foreground)) 0,
+    hsl(var(--foreground)) calc(100% - var(--chat-sidebar-title-fade)),
+    hsl(var(--foreground) / 0) 100%
+  );
+}
+
+.chat-sidebar-thread-title__content {
+  display: block;
+  width: max-content;
+  transform: translateX(0);
+}
+
+.an-chat-history-row:hover
+  .chat-sidebar-thread-title[data-overflow="true"]
+  .chat-sidebar-thread-title__content {
+  animation: chat-sidebar-title-reveal
+    var(--chat-sidebar-title-duration, 1800ms) ease-in-out 350ms;
+}
+
+.chat-sidebar-thread-details {
+  border-color: hsl(var(--sidebar-border));
+}
+
+.chat-sidebar-history.an-chat-history--rail
+  .an-chat-history-row__menu-trigger--pinned {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.chat-sidebar-history.an-chat-history--rail
+  .an-chat-history-row:hover
+  .an-chat-history-row__menu-trigger--pinned,
+.chat-sidebar-history.an-chat-history--rail
+  .an-chat-history-row:focus-within
+  .an-chat-history-row__menu-trigger--pinned,
+.chat-sidebar-history.an-chat-history--rail
+  .an-chat-history-row__menu-trigger--pinned[aria-expanded="true"] {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+@keyframes chat-sidebar-title-reveal {
+  to {
+    transform: translateX(calc(-1 * var(--chat-sidebar-title-shift, 0px)));
+  }
+}
+
+.dark .app-glow {
+  background-image:
+    radial-gradient(ellipse 70% 45% at 50% -5%, hsl(235 95% 60% / 0.35), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 85% 60%, hsl(260 80% 60% / 0.12), transparent 70%);
+}
+
+.deal-panel {
+  background-image: linear-gradient(180deg, hsl(0 0% 100% / 0.06), hsl(0 0% 100% / 0.015));
+  box-shadow: 0 30px 60px -30px hsl(0 0% 0% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.06);
+  backdrop-filter: blur(18px);
+}
+
+@media print {
+  :root,
+  html.dark {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --navy: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --secondary: 214 40% 95%;
+    --secondary-foreground: 222 47% 11%;
+    --muted-foreground: 215 16% 40%;
+    --border: 214 25% 88%;
+  }
+  .app-glow,
+  .deal-panel {
+    background-image: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .app-shell,
+  .agent-native-app-main {
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  body {
+    background: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .an-chat-history-row:hover .chat-sidebar-thread-title__content {
+    animation: none;
+  }
+}
+
+.chat-sidebar-history.an-chat-history--rail
+  .an-chat-history-row--active
+  .an-chat-history-row__button {
+  background: hsl(var(--sidebar-accent));
+  color: hsl(var(--sidebar-accent-foreground));
+}
+
+.dark {
+  --background: 230 50% 4%;
+  --foreground: 220 30% 96%;
+  --card: 232 35% 9%;
+  --card-foreground: 220 30% 96%;
+  --popover: 232 35% 10%;
+  --popover-foreground: 220 30% 96%;
+  --primary: 233 80% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 232 25% 15%;
+  --secondary-foreground: 220 30% 96%;
+  --muted: 232 25% 13%;
+  --muted-foreground: 225 18% 66%;
+  --accent: 232 25% 16%;
+  --accent-foreground: 220 30% 96%;
+  --destructive: 0 80% 62%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 230 30% 20%;
+  --input: 230 30% 20%;
+  --ring: 233 80% 58%;
+  --sidebar-background: 230 50% 4%;
+  --sidebar-foreground: 225 18% 66%;
+  --sidebar-primary: 233 80% 58%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 232 25% 15%;
+  --sidebar-accent-foreground: 220 30% 96%;
+  --sidebar-border: 230 30% 20%;
+  --sidebar-ring: 233 90% 70%;
+  --navy: 220 30% 96%;
+  --teal: 233 80% 58%;
+  --teal-foreground: 0 0% 100%;
+  --success: 152 65% 62%;
+  --success-bg: 152 50% 13%;
+  --warning: 40 95% 64%;
+  --warning-bg: 40 70% 13%;
+  --danger: 0 85% 70%;
+  --danger-bg: 0 60% 16%;
+}
+
+.dark .brand-logo {
+  filter: brightness(0) invert(1);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter Variable", "Inter", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.22);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.34);
+}
