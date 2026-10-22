@@ -82,6 +82,7 @@ export default function Root() {
      <AppProviders
   queryClient={queryClient}
   defaultTheme="dark"
+  isPublicPath={(path) => path === "/login" || path === "/signup"}
 >
         <DbSyncSetup />
         <AppLayout>
