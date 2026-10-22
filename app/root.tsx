@@ -79,7 +79,11 @@ export default function Root() {
   const [queryClient] = useState(() => createAgentNativeQueryClient());
   return (
     <AppToolkitProvider>
-      <AppProviders queryClient={queryClient} defaultTheme="dark">
+      <AppProviders
+  queryClient={queryClient}
+  defaultTheme="dark"
+  isPublicPath={(path) => path === "/signup"}
+>
         <DbSyncSetup />
         <AppLayout>
           <Outlet />
